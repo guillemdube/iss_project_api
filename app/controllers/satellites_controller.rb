@@ -8,11 +8,10 @@ class SatellitesController < ApplicationController
                 Satellite.where(:name_sat => satellite_data[0]['name'])
                 .first_or_create(:name_sat => satellite_data[0]['name'], :id_sat => satellite_data[0]['id'])
             else 
-                return
+                render json: {message: response.error}, status: :not_found
             end
         end
         satellite = Satellite.first
-        # render json: SatelliteSerializer.new(satellite).serializable_hash[:data][:attributes], status: :ok
         render json: [satellite], status: :ok
     end
 end

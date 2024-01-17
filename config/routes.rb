@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get '/current_user', to: 'current_user#index'
-  get '/get_image', to: 'current_user#retrieveImage'
-  post '/change_image', to: 'current_user#create'
-  delete '/delete_image', to: 'current_user#deleteImage'
+  get '/get_image', to: 'current_user#retrieve_image'
+  post '/change_image', to: 'current_user#create_image'
+  delete '/delete_image', to: 'current_user#delete_image'
+  post '/update_user', to: 'current_user#update_user'
 
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
